@@ -1,66 +1,49 @@
-// assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
-
-// constant
+import { IconTypography, IconPalette, IconShadow, IconWindmill, IconDashboard } from '@tabler/icons';
 const icons = {
     IconTypography,
     IconPalette,
     IconShadow,
-    IconWindmill
+    IconWindmill,
+    IconDashboard
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
 const utilities = {
     id: 'utilities',
-    title: 'Utilities',
     type: 'group',
     children: [
         {
-            id: 'util-typography',
-            title: 'Typography',
+            id: 'util-dash',
+            title: 'Dashboard',
             type: 'item',
-            url: '/utils/util-typography',
-            icon: icons.IconTypography,
+            url: '/utils/dashboard',
+            icon: icons.IconDashboard,
             breadcrumbs: false
         },
         {
             id: 'util-color',
-            title: 'Color',
+            title: 'Manage User',
             type: 'item',
-            url: '/utils/util-color',
+            url: '/utils/manage-user',
             icon: icons.IconPalette,
             breadcrumbs: false
         },
         {
             id: 'util-shadow',
-            title: 'Shadow',
+            title: 'Work Queue',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/utils/work-queue',
             icon: icons.IconShadow,
             breadcrumbs: false
         },
         {
-            id: 'icons',
-            title: 'Icons',
-            type: 'collapse',
-            icon: icons.IconWindmill,
-            children: [
-                {
-                    id: 'tabler-icons',
-                    title: 'Tabler Icons',
-                    type: 'item',
-                    url: '/icons/tabler-icons',
-                    breadcrumbs: false
-                },
-                {
-                    id: 'material-icons',
-                    title: 'Material Icons',
-                    type: 'item',
-                    url: '/icons/material-icons',
-                    breadcrumbs: false
-                }
-            ]
+            id: 'util-typography',
+            title: 'Application',
+            type: 'item',
+            url: '/utils/appliaction',
+            icon: icons.IconTypography,
+            breadcrumbs: false
         }
     ]
 };
