@@ -51,7 +51,7 @@ export default function WorkQueue() {
                                                         })
                                                     }
                                                 >
-                                                    Action
+                                                    Action Button
                                                 </Button>
                                             </TableCell>
                                         </TableRow>
