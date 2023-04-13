@@ -19,6 +19,8 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import MainCard from 'ui-component/cards/MainCard';
 import Transitions from 'ui-component/extended/Transitions';
 import { IconLogout, IconSettings } from '@tabler/icons';
+import CardHeader from '@mui/material/CardHeader';
+import { red } from '@mui/material/colors';
 
 // ==============================|| PROFILE MENU ||============================== //
 
@@ -28,6 +30,8 @@ const ProfileSection = () => {
     const navigate = useNavigate();
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [open, setOpen] = useState(false);
+
+    const data = JSON.parse(localStorage.getItem('Admin_Signup'));
 
     const anchorRef = useRef(null);
 
@@ -129,7 +133,7 @@ const ProfileSection = () => {
                             <ClickAwayListener onClickAway={handleClose}>
                                 <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                                     <PerfectScrollbar style={{ height: '100%', maxHeight: 'calc(100vh - 250px)', overflowX: 'hidden' }}>
-                                        <Box sx={{ p: 2 }}>
+                                        <Box>
                                             <List
                                                 component="nav"
                                                 sx={{
@@ -146,16 +150,22 @@ const ProfileSection = () => {
                                                     }
                                                 }}
                                             >
-                                                <ListItemButton
+                                                {/* <ListItemButton
                                                     sx={{ borderRadius: `${customization.borderRadius}px` }}
                                                     selected={selectedIndex === 0}
                                                     onClick={handleListItemClick}
-                                                >
-                                                    <ListItemIcon>
-                                                        <IconSettings stroke={1.5} size="1.3rem" />
-                                                    </ListItemIcon>
-                                                    <ListItemText primary={<Typography variant="body2">Account Settings</Typography>} />
-                                                </ListItemButton>
+                                                > */}
+                                                <CardHeader
+                                                    avatar={<Avatar aria-label="recipe">{data.userName.charAt(0).toUpperCase()}</Avatar>}
+                                                    title=<ListItemText
+                                                        primary={
+                                                            <Typography variant="body2">
+                                                                {data.firstName} {data.lastName}
+                                                            </Typography>
+                                                        }
+                                                    />
+                                                />
+                                                {/* </ListItemButton> */}
                                                 <ListItemButton
                                                     sx={{ borderRadius: `${customization.borderRadius}px` }}
                                                     selected={selectedIndex === 4}

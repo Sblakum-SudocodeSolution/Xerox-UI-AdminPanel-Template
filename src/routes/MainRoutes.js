@@ -5,6 +5,7 @@ const Dashboard = Loadable(lazy(() => import('views/utilities/Dashboard')));
 const Application = Loadable(lazy(() => import('views/utilities/Application')));
 const ManageUser = Loadable(lazy(() => import('views/utilities/ManageUser')));
 const WorkQueue = Loadable(lazy(() => import('views/utilities/WorkQueue')));
+const Profile = Loadable(lazy(() => import('views/utilities/Profile')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -49,6 +50,15 @@ const MainRoutes = {
                 {
                     path: 'work-queue',
                     element: <WorkQueue />
+                }
+            ]
+        },
+        {
+            path: 'utils',
+            children: [
+                {
+                    path: 'profile',
+                    element: <Profile />
                 }
             ]
         }

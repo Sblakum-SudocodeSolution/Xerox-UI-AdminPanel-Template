@@ -10,7 +10,23 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary
 }));
 
-export default function Visa({ prevStep, nextStep, handleChange, value }) {
+export default function Visa({ prevStep, nextStep }) {
+    const [inputVal, setInputVal] = useState({
+        visaNumber: '',
+        passportNumber: '',
+        userName: '',
+        dob: '',
+        nationality: '',
+        visaIssueDate: '',
+        visaExpDate: ''
+    });
+
+    let { visaNumber, passportNumber, userName, dob, nationality, visaIssueDate, visaExpDate } = inputVal;
+
+    const handleChange = () => {
+        setInputVal({ ...inputVal, [e.target.name]: e.target.value });
+    };
+
     const Continue = (e) => {
         e.preventDefault();
         nextStep();
@@ -38,40 +54,80 @@ export default function Visa({ prevStep, nextStep, handleChange, value }) {
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridEmail">
                                         <Form.Label className="d-flex flex-row">Visa Number</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Visa Number" name="visaNumber" required />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Enter Visa Number"
+                                            name="visaNumber"
+                                            value={visaNumber}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridPassword">
                                         <Form.Label className="d-flex flex-row">Passport Number</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Passport Number" name="passportNumber" required />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Enter Passport Number"
+                                            name="passportNumber"
+                                            value={passportNumber}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
                                 </Row>
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridPassword">
                                         <Form.Label className="d-flex flex-row">Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Full Name" name="name" required />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Enter Full Name"
+                                            name="userName"
+                                            value={userName}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
                                 </Row>
 
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridState">
                                         <Form.Label className="d-flex flex-row">Date Of Birth</Form.Label>
-                                        <Form.Control type="date" name="dob" required />
+                                        <Form.Control type="date" name="dob" value={dob} onChange={() => handleChange()} required />
                                     </Form.Group>
                                     <Form.Group as={Col} controlId="formGridZip">
                                         <Form.Label className="d-flex flex-row">Nationality</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Country Name" name="nationality" required />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Enter Country Name"
+                                            name="nationality"
+                                            value={nationality}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
                                 </Row>
 
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridCity">
                                         <Form.Label className="d-flex flex-row">Visa Issue Date</Form.Label>
-                                        <Form.Control type="date" name="visaIssueDate" required />
+                                        <Form.Control
+                                            type="date"
+                                            name="visaIssueDate"
+                                            value={visaIssueDate}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
                                     <Form.Group as={Col} controlId="formGridCity">
                                         <Form.Label className="d-flex flex-row">Visa Expire Date</Form.Label>
-                                        <Form.Control type="date" name="visaExpDate" required />
+                                        <Form.Control
+                                            type="date"
+                                            name="visaExpDate"
+                                            value={visaExpDate}
+                                            onChange={() => handleChange()}
+                                            required
+                                        />
                                     </Form.Group>
                                 </Row>
                                 <Row>

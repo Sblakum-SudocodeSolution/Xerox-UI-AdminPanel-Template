@@ -21,20 +21,13 @@ export default function Stepper() {
         setData({ step: step + 1 });
     };
 
-    const handleChange = (e) => {
-        setData({ [e.target.name]: e.target.value });
-    };
-
     const { step } = data;
-    const { email, userName, password } = data;
-
-    const value = { email, userName, password };
 
     switch (step) {
         case 1:
-            return <Passport nextStep={nextStep} handleChange={handleChange} value={value} />;
+            return <Passport nextStep={nextStep} />;
         case 2:
-            return <Visa prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} value={value} />;
+            return <Visa prevStep={prevStep} nextStep={nextStep} />;
         case 3:
             return <Success />;
         default:

@@ -1,13 +1,17 @@
-import { IconTypography, IconPalette, IconShadow, IconWindmill, IconDashboard } from '@tabler/icons';
+// import React from 'react';
+import { IconShadow, IconDashboard } from '@tabler/icons';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 const icons = {
-    IconTypography,
-    IconPalette,
     IconShadow,
-    IconWindmill,
-    IconDashboard
+    IconDashboard,
+    PersonOutlineOutlinedIcon,
+    InsertDriveFileOutlinedIcon,
+    PeopleAltOutlinedIcon
 };
 
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
+let user = JSON.parse(localStorage.getItem('Admin_Signup'));
 
 const utilities = {
     id: 'utilities',
@@ -21,28 +25,40 @@ const utilities = {
             icon: icons.IconDashboard,
             breadcrumbs: false
         },
-        {
-            id: 'util-color',
-            title: 'Manage User',
-            type: 'item',
-            url: '/utils/manage-user',
-            icon: icons.IconPalette,
-            breadcrumbs: false
-        },
-        {
-            id: 'util-shadow',
-            title: 'Work Queue',
-            type: 'item',
-            url: '/utils/work-queue',
-            icon: icons.IconShadow,
-            breadcrumbs: false
-        },
+        user.userType === '1'
+            ? {
+                  id: 'util-color',
+                  title: 'Manage User',
+                  type: 'item',
+                  url: '/utils/manage-user',
+                  icon: icons.PeopleAltOutlinedIcon,
+                  breadcrumbs: false
+              }
+            : 'External User',
+        user.userType === '1'
+            ? {
+                  id: 'util-shadow',
+                  title: 'Work Queue',
+                  type: 'item',
+                  url: '/utils/work-queue',
+                  icon: icons.IconShadow,
+                  breadcrumbs: false
+              }
+            : 'External User',
         {
             id: 'util-typography',
             title: 'Application',
             type: 'item',
             url: '/utils/appliaction',
-            icon: icons.IconTypography,
+            icon: icons.InsertDriveFileOutlinedIcon,
+            breadcrumbs: false
+        },
+        {
+            id: 'util-profile',
+            title: 'Profile',
+            type: 'item',
+            url: '/utils/profile',
+            icon: icons.PersonOutlineOutlinedIcon,
             breadcrumbs: false
         }
     ]

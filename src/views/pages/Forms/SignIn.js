@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -7,16 +6,19 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 const theme = createTheme();
 
 export default function Signin() {
     let navigate = useNavigate();
 
-    const [inputVal, setInputVal] = React.useState({
+    const [inputVal, setInputVal] = useState({
         userName: '',
         password: ''
     });
+
+    const [errMsg, setErrMsg] = useState('');
 
     let { userName, password } = inputVal;
 
@@ -24,23 +26,28 @@ export default function Signin() {
         setInputVal({ ...inputVal, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const Admin_login = JSON.parse(localStorage.getItem('Admin_Signup'));
+        console.log('API_UserName : ', Admin_login.userName);
+        console.log('API_Password : ', Admin_login.userPassword);
 
-        if (inputVal.userName === Admin_login.userName && inputVal.password === Admin_login.password) {
-            localStorage.setItem('Admin-loggedin', true);
+        console.log('input_UserName : ', inputVal.userName);
+        console.log('input_Password : ', inputVal.password);
+
+        if (inputVal.userName === Admin_login.userName && inputVal.password === Admin_login.userPassword) {
+            localStorage.setItem('Adminloggedin', true);
             navigate('/utils/dashboard');
         } else {
-            alert('Wrong userName Or Password');
+            setErrMsg('Please enter valid UserName or Password*');
         }
     };
 
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="xs">
+                <Container component="main">
                     <CssBaseline />
                     <Box
                         sx={{
@@ -49,18 +56,21 @@ export default function Signin() {
                             alignItems: 'center'
                         }}
                     >
-                        <Box component="form" onSubmit={handleSubmit} validate sx={{ mt: 1 }} autoComplete="off">
+                        <h6 style={{ color: 'red' }}>{errMsg}</h6>
+                        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }} autoComplete="off">
                             <TextField
                                 margin="normal"
                                 fullWidth
+                                required
                                 label="User Name"
                                 value={userName}
                                 onChange={(e) => handleChange(e)}
                                 name="userName"
                             />
+
                             <TextField
                                 margin="normal"
-                                // required
+                                required
                                 fullWidth
                                 value={password}
                                 onChange={(e) => handleChange(e)}

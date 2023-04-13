@@ -16,7 +16,7 @@ export default function Application() {
                 <Grid container spacing={gridSpacing}>
                     <Grid item xs={12}>
                         <ThemeProvider theme={theme}>
-                            <Container component="main" maxWidth="lg">
+                            <Container component="main">
                                 <CssBaseline />
                                 <Row className="mt-4">
                                     <Stepper />

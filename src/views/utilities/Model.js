@@ -20,6 +20,12 @@ export default function Model(props) {
     const rejectUser = async () => {
         await axios.delete(`https://jsonplaceholder.typicode.com/users/${props.selectedItemId}`);
         props.onHide();
+        console.log('Reject');
+    };
+
+    const accessUser = async () => {
+        console.log('Access');
+        props.onHide();
     };
 
     if (props.selectedItemId > 0) {
@@ -47,7 +53,7 @@ export default function Model(props) {
                                 <Button variant="outline-danger" onClick={() => rejectUser()}>
                                     Reject
                                 </Button>
-                                <Button variant="outline-success" className="m-2">
+                                <Button variant="outline-success" className="m-2" onClick={() => accessUser()}>
                                     Access
                                 </Button>
                             </ListGroup.Item>

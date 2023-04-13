@@ -56,19 +56,19 @@ export default function WorkQueue() {
                                             </TableCell>
                                         </TableRow>
                                     ))}
+                                    <Model
+                                        show={modalShow.show}
+                                        selectedItemId={modalShow.selectedItemId}
+                                        onHide={() =>
+                                            setModalShow({
+                                                show: false,
+                                                selectedItemId: 0
+                                            })
+                                        }
+                                    />
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Model
-                            show={modalShow.show}
-                            selectedItemId={modalShow.selectedItemId}
-                            onHide={() =>
-                                setModalShow({
-                                    show: false,
-                                    selectedItemId: 0
-                                })
-                            }
-                        />
                     </Grid>
                 </Grid>
             </MainCard>

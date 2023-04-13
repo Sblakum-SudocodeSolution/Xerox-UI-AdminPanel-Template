@@ -1,17 +1,7 @@
 import * as React from 'react';
 import AnimateButton from 'ui-component/extended/AnimateButton';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-// import axios from 'axios';
+import { Select, FormControl, MenuItem, InputLabel, Container, Box, Grid, TextField, Button, CssBaseline } from '@mui/material';
 
 const theme = createTheme();
 
@@ -21,40 +11,42 @@ export default function Signup() {
         userName: '',
         firstName: '',
         lastName: '',
-        email: '',
-        compony: '',
-        password: ''
+        userEmail: '',
+        companyName: '',
+        userPassword: ''
     });
 
-    let { userType, userName, firstName, lastName, email, compony, password } = inputData;
+    let { userType, userName, firstName, lastName, userEmail, companyName, userPassword } = inputData;
 
     const handleChange = (e) => {
         setInputData({ ...inputData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         localStorage.setItem('Admin_Signup', JSON.stringify(inputData));
-        console.log('Admin_Signup : ', inputData);
 
-        // axios.post('http://localhost:3002/User', inputData);
+        // await axios
+        //     .post('https://642141a734d6cd4ebd6e8cdc.mockapi.io/Signup', inputData)
+        //     .then((response) => console.log(response))
+        //     .catch((error) => console.log(error));
 
         setInputData({
             userType: '',
             userName: '',
             firstName: '',
             lastName: '',
-            email: '',
-            compony: '',
-            password: ''
+            userEmail: '',
+            companyName: '',
+            userPassword: ''
         });
     };
 
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="xs">
+                <Container component="main">
                     <CssBaseline />
                     <Box
                         sx={{
@@ -63,7 +55,7 @@ export default function Signup() {
                             alignItems: 'center'
                         }}
                     >
-                        <Box component="form" validate onSubmit={handleSubmit} autoComplete="off" sx={{ mt: 3 }}>
+                        <Box component="form" validate="true" onSubmit={handleSubmit} autoComplete="off" sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sm={6}>
                                     <FormControl fullWidth>
@@ -77,8 +69,8 @@ export default function Signup() {
                                             onChange={(e) => handleChange(e)}
                                             required
                                         >
-                                            <MenuItem value="Internal">Internal</MenuItem>
-                                            <MenuItem value="External">External</MenuItem>
+                                            <MenuItem value="1">internal user</MenuItem>
+                                            <MenuItem value="2">External User</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -118,29 +110,29 @@ export default function Signup() {
                                     <TextField
                                         required
                                         fullWidth
-                                        value={email}
+                                        value={userEmail}
                                         onChange={(e) => handleChange(e)}
                                         label="Email Address"
-                                        name="email"
+                                        name="userEmail"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
                                         required
                                         fullWidth
-                                        value={compony}
+                                        value={companyName}
                                         onChange={(e) => handleChange(e)}
                                         label="Compony Name"
-                                        name="compony"
+                                        name="companyName"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
                                         required
                                         fullWidth
-                                        value={password}
+                                        value={userPassword}
                                         onChange={(e) => handleChange(e)}
-                                        name="password"
+                                        name="userPassword"
                                         label="Password"
                                         type="password"
                                     />

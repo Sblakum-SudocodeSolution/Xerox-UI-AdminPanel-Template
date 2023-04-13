@@ -5,6 +5,8 @@ import { gridSpacing } from 'store/constant';
 
 // ===============================|| COLOR BOX ||=============================== //
 
+let user = JSON.parse(localStorage.getItem('Admin_Signup'));
+
 const ColorBox = ({ bgcolor, title, data, dark }) => (
     <>
         <Card sx={{ mb: 3 }}>
@@ -55,6 +57,7 @@ export default function Dashboard() {
                 <Grid container spacing={gridSpacing}>
                     <Grid item xs={12}>
                         <h1>Welcome To Admin Panel </h1>
+                        {user.userType === '1' ? <h1>Internal User</h1> : <h1>External User</h1>}
                     </Grid>
                 </Grid>
             </MainCard>
