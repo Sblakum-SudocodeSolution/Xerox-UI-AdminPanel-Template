@@ -2,6 +2,7 @@ import * as React from 'react';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Select, FormControl, MenuItem, InputLabel, Container, Box, Grid, TextField, Button, CssBaseline } from '@mui/material';
+import axios from 'axios';
 
 const theme = createTheme();
 
@@ -28,7 +29,7 @@ export default function Signup() {
         localStorage.setItem('Admin_Signup', JSON.stringify(inputData));
 
         // await axios
-        //     .post('https://642141a734d6cd4ebd6e8cdc.mockapi.io/Signup', inputData)
+        //     .post('https://alecapi.sudocodesolutions.com/api/user/signup', inputData)
         //     .then((response) => console.log(response))
         //     .catch((error) => console.log(error));
 

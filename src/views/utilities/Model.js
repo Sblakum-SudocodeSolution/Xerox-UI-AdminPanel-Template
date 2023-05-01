@@ -54,7 +54,7 @@ export default function Model(props) {
                                     Reject
                                 </Button>
                                 <Button variant="outline-success" className="m-2" onClick={() => accessUser()}>
-                                    Access
+                                    Allow
                                 </Button>
                             </ListGroup.Item>
                         </ListGroup>

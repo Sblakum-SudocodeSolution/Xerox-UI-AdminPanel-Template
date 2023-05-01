@@ -18,7 +18,7 @@ const MainRoutes = {
             element: <Dashboard />
         },
         {
-            path: 'utils',
+            // path: 'utils',
             children: [
                 {
                     path: 'dashboard',
@@ -27,7 +27,7 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'utils',
+            // path: 'utils',
             children: [
                 {
                     path: 'appliaction',
@@ -36,7 +36,7 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'utils',
+            // path: 'utils',
             children: [
                 {
                     path: 'manage-user',
@@ -45,7 +45,7 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'utils',
+            // path: 'utils',
             children: [
                 {
                     path: 'work-queue',
@@ -54,7 +54,7 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'utils',
+            // path: 'utils',
             children: [
                 {
                     path: 'profile',

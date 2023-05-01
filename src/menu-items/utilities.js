@@ -21,7 +21,7 @@ const utilities = {
             id: 'util-dash',
             title: 'Dashboard',
             type: 'item',
-            url: '/utils/dashboard',
+            url: '/dashboard',
             icon: icons.IconDashboard,
             breadcrumbs: false
         },
@@ -30,7 +30,7 @@ const utilities = {
                   id: 'util-color',
                   title: 'Manage User',
                   type: 'item',
-                  url: '/utils/manage-user',
+                  url: '/manage-user',
                   icon: icons.PeopleAltOutlinedIcon,
                   breadcrumbs: false
               }
@@ -40,7 +40,7 @@ const utilities = {
                   id: 'util-shadow',
                   title: 'Work Queue',
                   type: 'item',
-                  url: '/utils/work-queue',
+                  url: '/work-queue',
                   icon: icons.IconShadow,
                   breadcrumbs: false
               }
@@ -49,7 +49,7 @@ const utilities = {
             id: 'util-typography',
             title: 'Application',
             type: 'item',
-            url: '/utils/appliaction',
+            url: '/appliaction',
             icon: icons.InsertDriveFileOutlinedIcon,
             breadcrumbs: false
         },
@@ -57,7 +57,7 @@ const utilities = {
             id: 'util-profile',
             title: 'Profile',
             type: 'item',
-            url: '/utils/profile',
+            url: '/profile',
             icon: icons.PersonOutlineOutlinedIcon,
             breadcrumbs: false
         }

@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const theme = createTheme();
 
@@ -29,16 +30,11 @@ export default function Signin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const Admin_login = JSON.parse(localStorage.getItem('Admin_Signup'));
-        console.log('API_UserName : ', Admin_login.userName);
-        console.log('API_Password : ', Admin_login.userPassword);
-
-        console.log('input_UserName : ', inputVal.userName);
-        console.log('input_Password : ', inputVal.password);
+        const Admin_login = await JSON.parse(localStorage.getItem('Admin_Signup'));
 
         if (inputVal.userName === Admin_login.userName && inputVal.password === Admin_login.userPassword) {
             localStorage.setItem('Adminloggedin', true);
-            navigate('/utils/dashboard');
+            navigate('/dashboard');
         } else {
             setErrMsg('Please enter valid UserName or Password*');
         }
